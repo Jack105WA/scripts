@@ -13,6 +13,4 @@ if getoption == 1:
     req = rq.get(url)
     print (req.text)
 
-
-
 input()

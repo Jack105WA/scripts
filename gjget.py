@@ -3,8 +3,8 @@ import requests as rq
 # choose what to get
 print("jacks gjget")
 print(" ")
-getoption = int(input("what to get 1: account. 2: levels. ").strip())
-secret = "Wmfd2893gb7" # nice secret rob
+getoption = int(input("what to get 1: account. 2: levels. 3: Account Comments ").strip())
+gdserversecret = "Wmfd2893gb7" # nice gdserversecret rob
 
 if getoption == 1:
     targetid = input("Enter AccountID: ").strip()
@@ -12,9 +12,9 @@ if getoption == 1:
         targetid = 31436582
     else:
         targetid = int(targetid)
-
+    print("Requesting user from https://www.boomlings.com/database/getGJUserInfo20.php")
     url = "https://www.boomlings.com/database/getGJUserInfo20.php"
-    params = {"secret": secret, "targetAccountID": targetid }
+    params = {"secret": gdserversecret, "targetAccountID": targetid }
     headers = {
     "User-Agent": ""
     }
@@ -26,14 +26,29 @@ elif getoption == 2:
         query = str(input("Search Query: ").strip())
     else:
         query = ""
-
+    print("Requesting level from https://www.boomlings.com/database/getGJLevels21.php")
     url = "https://www.boomlings.com/database/getGJLevels21.php"
-    params = {"secret": secret, "type": cat, "str": query}
+    params = {"secret": gdserversecret, "type": cat, "str": query}
     headers = {
     "User-Agent": ""
     }
     req = rq.post(url, data=params, headers=headers)
 
+elif getoption == 3:
+    targetid = input("Enter AccountID: ").strip()
+    if targetid == "":
+        targetid = 31436582
+    else:
+        targetid = int(targetid)
+    print("Requesting user from https://www.boomlings.com/database/getGJAccountComments20.php")
+    url = "https://www.boomlings.com/database/getGJAccountComments20.php"
+    params = {"secret": gdserversecret, "accountID": targetid, "page": 0 }
+    headers = {
+    "User-Agent": ""
+    }
+
+    req = rq.post(url, data=params, headers=headers)
+    print(req.text)
 
 # make info readable
 userkey = {
@@ -48,7 +63,7 @@ userkey = {
     10: "color",
     11: "color2",
     12: "shipID",
-    13: "secretCoins",
+    13: "gdserversecretCoins",
     14: "iconType",
     15: "special",
     16: "accountID",
