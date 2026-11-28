@@ -1,5 +1,3 @@
-import time
-
 dog = """
           <O>
        0000
@@ -20,17 +18,10 @@ xmas = """
     ^^^^^^^^^^
         ||                                                                                """
 happy = 0
-last_decay = time.time()
 print(dog)
 print("dog (By Jack105WA)")
 while True:
-    if time.time() - last_decay >= 5:
-        happy = happy - 1
-        if happy < 0:
-            happy = 0
-
-        last_decay = time.time()
-        action = int(input("1. Feed 2. Pet 3. fetch").strip())
+    action = int(input("1. Feed 2. Pet 3. fetch").strip())
     if action == 1:
         print("\033[H\033[J", end="")
         print("Woof!")
