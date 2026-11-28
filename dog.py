@@ -16,7 +16,7 @@ xmas = """
        ^^^
       ^^^^^^   
     ^^^^^^^^^^
-        ||                                                                                """
+        ||"""
 happy = 0
 print(dog)
 print("dog (By Jack105WA)")
@@ -51,6 +51,3 @@ while True:
         print("\033[H\033[J", end="")
         print(xmas)
         print('Merry Christmas!')
-
-
-input()

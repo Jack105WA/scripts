@@ -5,7 +5,7 @@ import secrets
 
 chars = "qwertyuiopasdfghjklzxcvbnm1234567890!@#$&"
 length: int = 1
-length_max = int(input("password length value: "))
+length_max = int(input("password length value: ")).strip()
 print("jacks password generator")
 def gen_pass():
     upcase = string.ascii_uppercase
